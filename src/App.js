@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Daily from "./components/daily";
+import Goals from "./components/goals";
+import ToDoList from "./components/todo";
+import Logup from "./Log/Logup";
+import Login from "./Log/Login";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Logup />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/todo" element={<ToDoList />}></Route>
+        <Route path="/daily" element={<Daily />}></Route>
+        <Route path="/goals" element={<Goals />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
